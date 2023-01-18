@@ -61,31 +61,10 @@
   </div>
 
   <script type="text/javascript">
-
-
-      function playsound(e){
-       const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-       const design = document.querySelector(`.key[data-key="${e.keyCode}"]`);
-       if(!audio)
-         return; //stop the function from running;
-
-       audio.currentTime = 0; //rewind the audio time and play from the beginning
-       audio.play();
-       design.classList.add('playing'); //adds class to element
-
-     }
-
-      function removeTransition(e){
-        if(e.propertyName !== 'transform')
-          return; //skip it
-        //console.log(this);
-        this.classList.remove('playing');
-      }
-      const keys = document.querySelectorAll('.key');
-
-      keys.forEach(key => key.addEventListener('transitionend', removeTransition));
-        window.addEventListener('keydown', playsound);
-
+    //listen for keyup event
+    window.addEventListener('keydown', function (e) {
+      console.log(e.keyCode);
+    });
 
 
   </script>
